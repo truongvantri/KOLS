@@ -1,0 +1,45 @@
+{
+    "name": "TouchInputActions",
+    "maps": [
+        {
+            "name": "Screen_Click",
+            "id": "dd9c4f5f-5a05-4cea-b479-02d8424b9519",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "67a19080-13b1-43d9-8ae5-2897017e3e60",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dcf41fca-716b-44db-ae79-fdad1270ccba",
+                    "path": "*/{Point}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Touch",
+            "bindingGroup": "Touch",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
