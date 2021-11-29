@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using ECM2.Characters;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterControllerHandle : AgentCharacter
 {
     protected override void HandleInput()
     {
-        // Should handle input here ?
-        // Movement (click-to-move)
+        //block when click UI
+        if (Input.GetMouseButton(0) && EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
 
         if (Input.GetMouseButton(0))
         {
