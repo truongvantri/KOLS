@@ -39,20 +39,20 @@ public class UIManager : TSingleton<UIManager>
 
     private void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.A))
+        
+        if (Input.GetKeyDown(KeyCode.N))
         {
-            ShowUIScreen<UIMessageDialog>(UICanvasCamera.Instance.transform);
+            ShowUIScreen<UIMessageDialog>(null,UICanvasOverlay.Instance.transform);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             HideUIScreen<UIMessageDialog>();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.M))
         {
-            ShowUIScreen<UIMessageDialog2>(UICanvasCamera.Instance.transform);
+            ShowUIScreen<UIMessageDialog2>(null,UICanvasOverlay.Instance.transform);
         }
-        */
+        
         
         //handle button back
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -169,6 +169,7 @@ public class UIManager : TSingleton<UIManager>
                     prefab.transform.SetParent(transform);
                     //uiPage.ResetSize();
                     //prefab.SetActive(false);
+                    uiPage.GetButtons();
                     listUIPagePrefabInScene.Add(uiPage);
                     RectTransform rect = uiPage.GetComponent<RectTransform>();
                     if (rect != null)

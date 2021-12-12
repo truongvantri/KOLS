@@ -43,7 +43,7 @@ namespace KOLS
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                Debug.Log("IsPointerOverGameObject");
+                //Debug.Log("IsPointerOverGameObject");
                 return;
             }
             
