@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowUIScreen<UIMessageDialog>(new UIMessageDialogData()
             {
             },
-                UICanvasOverlay.Instance.transform);
+            UICanvasOverlay.Instance.transform);
         }
     }
 }

@@ -196,8 +196,8 @@ namespace FarmingEngine
         {
             raycast_list.Clear();
 
-            if (TheUI.Get().IsBlockingPanelOpened())
-                return;
+            //if (TheUI.Get().IsBlockingPanelOpened())
+            //    return;
 
             PlayerUI ui = PlayerUI.GetFirst();
             if (ui != null && ui.IsBuildMode())

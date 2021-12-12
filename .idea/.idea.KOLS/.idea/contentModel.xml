@@ -518,6 +518,7 @@
               <e p="GameManager.cs" t="Include" />
               <e p="UIClickHandle.cs" t="Include" />
             </e>
+            <e p="JoystickHandle.cs" t="Include" />
             <e p="UIs" t="Include">
               <e p="UICanvasCamera.cs" t="Include" />
               <e p="UICanvasOverlay.cs" t="Include" />
