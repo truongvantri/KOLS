@@ -137,6 +137,7 @@ public class UIManager : TSingleton<UIManager>
     
 
     #region Editor
+    #if UNITY_EDITOR
     [Button]
     public void GetUIPrefabsLoadWithScene()
     {
@@ -193,6 +194,7 @@ public class UIManager : TSingleton<UIManager>
             listPrefabPath.Add(myObjectPath);
         }
     }
+    #endif
     #endregion
     
     
