@@ -24,17 +24,17 @@ public class UIManager : TSingleton<UIManager>
         base.Awake();
         listUIShowing = new List<UIPage>();
 
-        
-    }
-
-    private void Start()
-    {
         for (int i = 0; i < listUIPagePrefabInScene.Count; i++)
         {
             GameObject obj = listUIPagePrefabInScene[i].gameObject;
             if(obj != null)
                 listUIPagePrefabInScene[i].gameObject.SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()

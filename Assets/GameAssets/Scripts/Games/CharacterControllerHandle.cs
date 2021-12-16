@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using ECM2.Characters;
 using ECM2.Common;
 using KOLS;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CharacterControllerHandle : AgentCharacter
 {
+    public string userId;
     public bool isPathFollowing;
-
+    public GameObject pointCameraFollow;
     private JoystickHandle m_joystickHandle;
+    
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+    }
 
     protected override void OnStart()
     {
         base.OnStart();
         m_joystickHandle = JoystickHandle.Instance;
+        PlayerClientManager.Instance.AddPlayer(this);
     }
 
     public override bool IsPathFollowing()
@@ -25,8 +34,16 @@ public class CharacterControllerHandle : AgentCharacter
         return base.IsPathFollowing();
     }
 
+    public void SetCamera(Camera cameraIn)
+    {
+        _camera = cameraIn;
+    }
+
     protected override void HandleInput()
     {
+        if(!PhotonNetwork.LocalPlayer.IsLocal)
+            return;
+        
         //block when click UI
         if (Input.GetMouseButton(0) && EventSystem.current.IsPointerOverGameObject())
         {
@@ -57,6 +74,15 @@ public class CharacterControllerHandle : AgentCharacter
             else
             {
                 InputWithJoystick();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Jump();
+                }
+
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    StopJumping();
+                }
             }
         }
 

@@ -254,7 +254,7 @@ namespace ECM2.Characters
         [Tooltip("Reference to the Player's Camera.\n" +
                  "If assigned, the Character's movement will be relative to this camera, otherwise movement will be relative to world axis.")]
         [SerializeField]
-        private Camera _camera;
+        protected Camera _camera;
 
         #endregion
 

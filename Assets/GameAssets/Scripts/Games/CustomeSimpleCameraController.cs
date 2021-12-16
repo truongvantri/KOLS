@@ -48,15 +48,25 @@ namespace KOLS
 
         #region MONOBEHAVIOUR
 
+        private Camera _myCamera;
+
         public void OnValidate()
         {
             distanceToTarget = _distanceToTarget;
         }
 
+        private void Awake()
+        {
+            _myCamera = GetComponent<Camera>();
+        }
+
         public void Start()
         {
-            Vector3 targetPosition = target.position - transform.forward * distanceToTarget;
-            transform.position = targetPosition;
+            if (target != null)
+            {
+                Vector3 targetPosition = target.position - transform.forward * distanceToTarget;
+                transform.position = targetPosition;
+            }
         }
         
         public void LateUpdate()
@@ -67,12 +77,18 @@ namespace KOLS
 
         void Movement()
         {
+            if(_target == null)
+                return;
+            
             Vector3 targetPosition = target.position - transform.forward * distanceToTarget;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _followVelocity, _smoothTime);
         }
 
         public void UpdateRotation()
         {
+            if(body == null)
+                return;
+            
             Vector3 euler = transform.eulerAngles;
             euler.y = body.eulerAngles.y;
             euler.z = 0;
@@ -82,5 +98,20 @@ namespace KOLS
         }
 
         #endregion
+
+        public void SetTargetFollow(Transform obj)
+        {
+            _target = obj;
+        }
+
+        public void SetPlayer(Transform player)
+        {
+            body = player;
+        }
+
+        public Camera GetCamera()
+        {
+            return _myCamera;
+        }
     }
 }
